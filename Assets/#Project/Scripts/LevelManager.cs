@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         if(!isMenuScene){
+            DataManager.Save();
+            
             if(key == null){
                 Debug.LogError("LevelManger need a key.", gameObject);
             }
