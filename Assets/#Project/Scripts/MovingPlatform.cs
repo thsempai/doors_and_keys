@@ -53,4 +53,10 @@ public class MovingPlatform : MonoBehaviour
             other.transform.parent = null;
         }
     }
+
+    private void OnDrawGizmos(){
+        Collider2D collider = GetComponent<BoxCollider2D>();
+        Gizmos.color = Color.red;
+        Gizmos.DrawCube(collider.bounds.center + (Vector3) translation, collider.bounds.size);
+    }
 }
