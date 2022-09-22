@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets._2D;
 
 public class MovingPlatform : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MovingPlatform : MonoBehaviour
 
     private Vector3 start;
     private Vector3 end;
+    private bool inTrigger = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,14 +45,19 @@ public class MovingPlatform : MonoBehaviour
 
     } 
     
-    private void OnTriggerEnter2D(Collider2D other){
+    private void OnTriggerStay2D(Collider2D other){
+        if(inTrigger) return;
         if(other.CompareTag("Player")){
-            other.transform.parent = transform;
+            if(other.GetComponent<PlatformerCharacter2D>().m_Grounded){
+                inTrigger = true;
+                other.transform.parent = transform;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D other){
         if(other.CompareTag("Player")){
             other.transform.parent = null;
+            inTrigger = false;
         }
     }
 

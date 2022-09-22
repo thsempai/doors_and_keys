@@ -8,17 +8,19 @@ public class LevelManager : MonoBehaviour
     public Key key;
     public Door door;
     public string nextLevel;
+    public bool isMenuScene = false;
 
 
     void Start()
     {
-        if(key == null){
-            Debug.LogError("LevelManger need a key.", gameObject);
+        if(!isMenuScene){
+            if(key == null){
+                Debug.LogError("LevelManger need a key.", gameObject);
+            }
+            else{
+                key.manager = this;
+            }
         }
-        else{
-            key.manager = this;
-        }
-
         if(door == null){
             Debug.LogError("LevelManger need a door.", gameObject);
         }

@@ -18,7 +18,12 @@ public class FallingPlaform : MonoBehaviour
     private void AddGravity(){
             rb.gravityScale = 2f;
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
-            GetComponent<BoxCollider2D>().enabled = false;
+
+            foreach(Collider2D col in GetComponents<BoxCollider2D>())
+            {
+                if(col.isTrigger == false)
+                    col.enabled = false;
+            }
     }
     private void OnTriggerEnter2D(Collider2D other){
 
