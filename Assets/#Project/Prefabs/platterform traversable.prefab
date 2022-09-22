@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_UsedByEffector
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4082776934285346538, guid: 74e8e3b4e71cbca4f87090e0f6cde408, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4797872482544310111, guid: 74e8e3b4e71cbca4f87090e0f6cde408, type: 3}
       propertyPath: m_Sprite
       value: 
